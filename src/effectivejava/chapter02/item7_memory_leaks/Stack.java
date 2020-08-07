@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item7;
+package effectivejava.chapter02.item7_memory_leaks;
 import java.util.*;
 
 // Can you spot the "memory leak"?  (Pages 26-27)
