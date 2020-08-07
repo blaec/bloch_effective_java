@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item3.staticfactory;
+package effectivejava.chapter02.item3_singleton.staticfactory;
 
 // Singleton with static factory (Page 17)
 public class Elvis {

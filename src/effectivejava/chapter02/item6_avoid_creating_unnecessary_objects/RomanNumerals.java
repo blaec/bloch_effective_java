@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item6;
+package effectivejava.chapter02.item6_avoid_creating_unnecessary_objects;
 import java.util.regex.Pattern;
 
 // Reusing expensive object for improved performance (Pages 22 and 23)

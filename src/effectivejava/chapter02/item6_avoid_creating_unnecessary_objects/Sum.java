@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item6;
+package effectivejava.chapter02.item6_avoid_creating_unnecessary_objects;
 
 // Hideously slow program! Can you spot the object creation? (Page 24)
 public class Sum {
