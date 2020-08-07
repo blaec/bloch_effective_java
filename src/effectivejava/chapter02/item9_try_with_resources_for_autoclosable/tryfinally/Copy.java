@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item9.tryfinally;
+package effectivejava.chapter02.item9_try_with_resources_for_autoclosable.tryfinally;
 
 import java.io.*;
 

@@ -1,4 +1,4 @@
-package effectivejava.chapter02.item9.trywithresources;
+package effectivejava.chapter02.item9_try_with_resources_for_autoclosable.trywithresources;
 
 import java.io.*;
 
