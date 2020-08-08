@@ -1,4 +1,4 @@
-package effectivejava.chapter03.item12;
+package effectivejava.chapter03.item12_toString;
 
 // Adding a toString method to PhoneNumber (page 52)
 public final class PhoneNumber {
