@@ -19,7 +19,7 @@ public final class PhoneNumber {
     @Override public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof effectivejava.chapter03.item11.PhoneNumber))
+        if (!(o instanceof effectivejava.chapter03.item11_hashcode.PhoneNumber))
             return false;
         PhoneNumber pn = (PhoneNumber)o;
         return pn.lineNum == lineNum && pn.prefix == prefix

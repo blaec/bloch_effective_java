@@ -1,4 +1,4 @@
-package effectivejava.chapter03.item11;
+package effectivejava.chapter03.item11_hashcode;
 import java.util.*;
 
 // Shows the need for overriding hashcode when you override equals (Pages 50-53 )
@@ -43,19 +43,19 @@ public final class PhoneNumber {
 //        return Objects.hash(lineNum, prefix, areaCode);
 //    }
 
-//    // hashCode method with lazily initialized cached hash code  (page 53)
-//    private int hashCode; // Automatically initialized to 0
-//
-//    @Override public int hashCode() {
-//        int result = hashCode;
-//        if (result == 0) {
-//            result = Short.hashCode(areaCode);
-//            result = 31 * result + Short.hashCode(prefix);
-//            result = 31 * result + Short.hashCode(lineNum);
-//            hashCode = result;
-//        }
-//        return result;
-//    }
+    // hashCode method with lazily initialized cached hash code  (page 53)
+    private int hashCode; // Automatically initialized to 0
+
+    @Override public int hashCode() {
+        int result = hashCode;
+        if (result == 0) {
+            result = Short.hashCode(areaCode);
+            result = 31 * result + Short.hashCode(prefix);
+            result = 31 * result + Short.hashCode(lineNum);
+            hashCode = result;
+        }
+        return result;
+    }
 
     public static void main(String[] args) {
         Map<PhoneNumber, String> m = new HashMap<>();
