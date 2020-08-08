@@ -1,4 +1,4 @@
-package effectivejava.chapter3.item10;
+package effectivejava.chapter03.item10_equals;
 
 // Simple immutable two-dimensional integer point class (Page 37)
 public class Point {

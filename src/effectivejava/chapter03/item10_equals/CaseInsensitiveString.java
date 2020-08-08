@@ -1,4 +1,4 @@
-package effectivejava.chapter3.item10;
+package effectivejava.chapter03.item10_equals;
 
 import java.util.ArrayList;
 import java.util.List;

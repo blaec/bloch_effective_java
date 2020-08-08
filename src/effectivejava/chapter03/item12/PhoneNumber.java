@@ -1,10 +1,7 @@
-package effectivejava.chapter3.item13;
+package effectivejava.chapter03.item12;
 
-import java.util.HashMap;
-import java.util.Map;
-
-// Adding a clone method to PhoneNumber (page 59)
-public final class PhoneNumber implements Cloneable {
+// Adding a toString method to PhoneNumber (page 52)
+public final class PhoneNumber {
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -22,7 +19,7 @@ public final class PhoneNumber implements Cloneable {
     @Override public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof PhoneNumber))
+        if (!(o instanceof effectivejava.chapter03.item11.PhoneNumber))
             return false;
         PhoneNumber pn = (PhoneNumber)o;
         return pn.lineNum == lineNum && pn.prefix == prefix
@@ -48,24 +45,13 @@ public final class PhoneNumber implements Cloneable {
      * For example, if the value of the line number is 123, the last
      * four characters of the string representation will be "0123".
      */
-    @Override public String toString() {
-        return String.format("%03d-%03d-%04d",
-                areaCode, prefix, lineNum);
-    }
-
-    // Clone method for class with no references to mutable state (Page 59)
-    @Override public PhoneNumber clone() {
-        try {
-            return (PhoneNumber) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();  // Can't happen
-        }
-    }
+//    @Override public String toString() {
+//        return String.format("%03d-%03d-%04d",
+//                areaCode, prefix, lineNum);
+//    }
 
     public static void main(String[] args) {
-        PhoneNumber pn = new PhoneNumber(707, 867, 5309);
-        Map<PhoneNumber, String> m = new HashMap<>();
-        m.put(pn, "Jenny");
-        System.out.println(m.get(pn.clone()));
+        PhoneNumber jenny = new PhoneNumber(707, 867, 5309);
+        System.out.println("Jenny's number: " + jenny);
     }
 }

@@ -1,10 +1,10 @@
-package effectivejava.chapter3.item14;
-import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import static java.util.Comparator.*;
+package effectivejava.chapter03.item13;
 
-// Making PhoneNumber comparable (Pages 69-70)
-public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
+import java.util.HashMap;
+import java.util.Map;
+
+// Adding a clone method to PhoneNumber (page 59)
+public final class PhoneNumber implements Cloneable {
     private final short areaCode, prefix, lineNum;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
@@ -22,7 +22,7 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     @Override public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof effectivejava.chapter3.item11.PhoneNumber))
+        if (!(o instanceof PhoneNumber))
             return false;
         PhoneNumber pn = (PhoneNumber)o;
         return pn.lineNum == lineNum && pn.prefix == prefix
@@ -53,38 +53,19 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
                 areaCode, prefix, lineNum);
     }
 
-//    // Multiple-field Comparable with primitive fields (page 69)
-//    public int compareTo(PhoneNumber pn) {
-//        int result = Short.compare(areaCode, pn.areaCode);
-//        if (result == 0)  {
-//            result = Short.compare(prefix, pn.prefix);
-//            if (result == 0)
-//                result = Short.compare(lineNum, pn.lineNum);
-//        }
-//        return result;
-//    }
-
-    // Comparable with comparator construction methods (page 70)
-    private static final Comparator<PhoneNumber> COMPARATOR =
-            comparingInt((PhoneNumber pn) -> pn.areaCode)
-                    .thenComparingInt(pn -> pn.prefix)
-                    .thenComparingInt(pn -> pn.lineNum);
-
-    public int compareTo(PhoneNumber pn) {
-        return COMPARATOR.compare(this, pn);
-    }
-
-    private static PhoneNumber randomPhoneNumber() {
-        Random rnd = ThreadLocalRandom.current();
-        return new PhoneNumber((short) rnd.nextInt(1000),
-                               (short) rnd.nextInt(1000),
-                               (short) rnd.nextInt(10000));
+    // Clone method for class with no references to mutable state (Page 59)
+    @Override public PhoneNumber clone() {
+        try {
+            return (PhoneNumber) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();  // Can't happen
+        }
     }
 
     public static void main(String[] args) {
-        NavigableSet<PhoneNumber> s = new TreeSet<PhoneNumber>();
-        for (int i = 0; i < 10; i++)
-            s.add(randomPhoneNumber());
-        System.out.println(s);
+        PhoneNumber pn = new PhoneNumber(707, 867, 5309);
+        Map<PhoneNumber, String> m = new HashMap<>();
+        m.put(pn, "Jenny");
+        System.out.println(m.get(pn.clone()));
     }
 }

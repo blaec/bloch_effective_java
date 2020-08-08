@@ -1,4 +1,4 @@
-package effectivejava.chapter3.item10;
+package effectivejava.chapter03.item10_equals;
 
 // Class with a typical equals method (Page 48)
 public final class PhoneNumber {

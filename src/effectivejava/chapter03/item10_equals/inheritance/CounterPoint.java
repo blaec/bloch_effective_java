@@ -1,5 +1,5 @@
-package effectivejava.chapter3.item10.inheritance;
-import effectivejava.chapter3.item10.Point;
+package effectivejava.chapter03.item10_equals.inheritance;
+import effectivejava.chapter03.item10_equals.Point;
 
 import java.util.concurrent.atomic.*;
 

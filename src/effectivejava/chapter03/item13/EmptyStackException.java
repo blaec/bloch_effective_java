@@ -1,4 +1,4 @@
-package effectivejava.chapter3.item13;
+package effectivejava.chapter03.item13;
 
 public class EmptyStackException extends IllegalStateException {
 }

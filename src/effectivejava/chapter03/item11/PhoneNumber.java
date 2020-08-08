@@ -1,4 +1,4 @@
-package effectivejava.chapter3.item11;
+package effectivejava.chapter03.item11;
 import java.util.*;
 
 // Shows the need for overriding hashcode when you override equals (Pages 50-53 )
