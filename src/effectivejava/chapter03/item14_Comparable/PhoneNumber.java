@@ -1,4 +1,4 @@
-package effectivejava.chapter03.item14;
+package effectivejava.chapter03.item14_Comparable;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import static java.util.Comparator.*;
