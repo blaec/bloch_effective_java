@@ -29,7 +29,7 @@ public final class CaseInsensitiveString {
 
         List<CaseInsensitiveString> list = new ArrayList<>();
         list.add(cis);
-
+        s.equals(cis);
         System.out.println(list.contains(s));
     }
 
