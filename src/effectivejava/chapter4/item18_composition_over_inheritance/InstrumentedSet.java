@@ -1,34 +1,28 @@
-package effectivejava.chapter4.item18;
+package effectivejava.chapter4.item18_composition_over_inheritance;
 import java.util.*;
 
-// Broken - Inappropriate use of inheritance! (Page 87)
-public class InstrumentedHashSet<E> extends HashSet<E> {
-    // The number of attempted element insertions
+// Wrapper class - uses composition in place of inheritance  (Page 90)
+public class InstrumentedSet<E> extends ForwardingSet<E> {
     private int addCount = 0;
 
-    public InstrumentedHashSet() {
-    }
-
-    public InstrumentedHashSet(int initCap, float loadFactor) {
-        super(initCap, loadFactor);
+    public InstrumentedSet(Set<E> s) {
+        super(s);
     }
 
     @Override public boolean add(E e) {
         addCount++;
         return super.add(e);
     }
-
     @Override public boolean addAll(Collection<? extends E> c) {
         addCount += c.size();
         return super.addAll(c);
     }
-
     public int getAddCount() {
         return addCount;
     }
 
     public static void main(String[] args) {
-        InstrumentedHashSet<String> s = new InstrumentedHashSet<>();
+        InstrumentedSet<String> s = new InstrumentedSet<>(new HashSet<>());
         s.addAll(List.of("Snap", "Crackle", "Pop"));
         System.out.println(s.getAddCount());
     }

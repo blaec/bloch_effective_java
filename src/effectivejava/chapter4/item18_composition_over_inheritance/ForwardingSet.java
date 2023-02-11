@@ -1,4 +1,4 @@
-package effectivejava.chapter4.item18;
+package effectivejava.chapter4.item18_composition_over_inheritance;
 import java.util.*;
 
 // Reusable forwarding class (Page 90)
